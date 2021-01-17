@@ -10,7 +10,7 @@ const pools = new Map();
 
 app.get("/watch", (req, res) => {
   const room = req.query.room;
-  console.log("/watch", room);
+  // console.log("/watch", room);
   if (!room) return res.status(400).send({ error: "missing room url param" });
   const pool = pools.get(room);
   if (pool) pool.push(res);
@@ -19,7 +19,7 @@ app.get("/watch", (req, res) => {
 
 app.post("/send", (req, res) => {
   const room = req.query.room;
-  console.log("/send", req.body, room);
+  // console.log("/send", req.body, room);
   if (!room) return res.status(400).json({ error: "missing room url param" });
   const pool = pools.get(room);
   if (pool) for (let res of pool) res.json(req.body);
@@ -30,7 +30,7 @@ app.post("/send", (req, res) => {
 app.get("/translate", async (req, res) => {
   try {
     const { lang = "en", text } = req.query;
-    console.log("/translate", lang, text);
+    // console.log("/translate", lang, text);
     if (!text) return res.status(400).json({ error: "missing text url param" });
     const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&q=${encodeURI(text)}`;
     const response = await fetch(url);
