@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     top: 10,
     left: 10,
     zIndex: 100,
+    borderRadius: 50
   },
 }))
 

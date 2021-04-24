@@ -17,7 +17,7 @@ const IndexPage = () => {
   const [language, setLanguage] = useState("en")
   const [messages, setMessages] = useState([])
   const toggleThemeHandler = () => {
-    if (theme == darkTheme) setTheme(lightTheme)
+    if (theme === darkTheme) setTheme(lightTheme)
     else setTheme(darkTheme)
   }
 
@@ -32,7 +32,7 @@ const IndexPage = () => {
       if (identity && message) {
         const newMessages = global.messages.concat([{ identity, message }])
         setMessages(newMessages)
-        scrollTo(0, document.body.scrollHeight)
+        window.scrollTo(0, document.body.scrollHeight)
       }
     }
     await watchRoom()
@@ -59,7 +59,7 @@ const IndexPage = () => {
   }
 
   const changeRoom = async newRoom => {
-    if (newRoom == room) return
+    if (newRoom === room) return
     await sendMessage("Goodbye everyone!")
     setRoom(newRoom)
     window.location.hash = newRoom
