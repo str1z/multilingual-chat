@@ -40,7 +40,7 @@ export default ({ identity, sendMessage }) => {
 		if (data.success) setMessage("");
 	};
 	return (
-		<div className={classes.container} onSubmitCapture={handleSumit}>
+		<form className={classes.container} onSubmitCapture={handleSumit}>
 			<Paper className={classes.inputBubble}>
 				<InputBase
 					className={classes.input}
@@ -52,6 +52,6 @@ export default ({ identity, sendMessage }) => {
 			<IconButton className={classes.iconButton} onClick={handleSumit}>
 				<SendIcon />
 			</IconButton>
-		</div>
+		</form>
 	);
 };
